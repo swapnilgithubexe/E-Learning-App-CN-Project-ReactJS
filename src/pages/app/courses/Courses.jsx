@@ -1,9 +1,14 @@
-import React from 'react';
-import style from './Courses.module.css';
-import Card from '../../../components/card';
-import coursesData from '../../../data/courses.json';
- 
+import React from "react";
+import style from "./Courses.module.css";
+import Card from "../../../components/card";
+import coursesData from "../../../data/courses.json";
+import { useNavigate } from "react-router-dom";
+
 function Courses() {
+  const navigate = useNavigate();
+  const handleClick = (id) => {
+    navigate(`${id}`);
+  };
   return (
     <div className={style.courses_container}>
       <div className={style.heading}>
@@ -13,7 +18,11 @@ function Courses() {
       <div className={style.courses}>
         {coursesData.map((course, index) => {
           return (
-            <div key={index} className={style.card_container}>
+            <div
+              onClick={() => handleClick(course.id)}
+              key={index}
+              className={style.card_container}
+            >
               <Card
                 key={course.id}
                 id={course.id}
