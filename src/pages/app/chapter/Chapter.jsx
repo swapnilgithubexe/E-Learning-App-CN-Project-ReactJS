@@ -4,11 +4,21 @@ import coursesData from "../../../data/courses.json";
 import { Outlet, useParams } from "react-router-dom";
 
 function Chapter() {
-  const { id, content } = useParams();
+  const { id, chapterId } = useParams();
   const matchedCourse = coursesData.find((item) => item.id === id);
+  // console.log(matchedCourse);
+
+  if (!matchedCourse) {
+    return <h2>Course Not Found</h2>;
+  }
   const chapter = matchedCourse.chapters.find(
-    (c) => c.title.toLocaleLowerCase() === content.toLowerCase()
+    (c) => c.chapter.toString() === chapterId
   );
+  // console.log(chapter);
+
+  if (!chapter) {
+    return <h2>Chapter not found</h2>;
+  }
 
   return (
     <>
@@ -23,7 +33,7 @@ function Chapter() {
           <iframe
             width="800"
             height="560"
-            src=""
+            src={chapter.video}
             title="React Video"
             frameBorder="1"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

@@ -32,14 +32,7 @@ function Learn() {
           <ul>
             {matchedCourse.chapters.map((chapter, i) => {
               return (
-                <div
-                  onClick={() =>
-                    navigate(
-                      `/learn/${id}/${chapter.title.toLowerCase().replace(/\s+/g, "-")}`
-                    )
-                  }
-                  key={i}
-                >
+                <div onClick={() => navigate(`${chapter.chapter}`)} key={i}>
                   {chapter.title}
                 </div>
               );

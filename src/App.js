@@ -27,7 +27,7 @@ function App() {
           element: <Learn />,
           children: [
             {
-              path: ":content", element: <Chapter />
+              path: ":chapterId", element: <Chapter />
             }
           ]
         }
