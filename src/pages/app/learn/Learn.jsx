@@ -46,7 +46,7 @@ function Learn() {
 
         <div>
           {/**Task5:  Chapter Details Must be rendered here */}
-          <Outlet context={matchedCourse} />
+          <Outlet context={{ ...matchedCourse }} />
         </div>
       </div>
     </div>

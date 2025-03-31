@@ -26,6 +26,7 @@ function Chapter() {
   return (
     <div>
       <h1>{chapter.title}</h1>
+      <hr />
       <h2>{chapter.description}</h2>
       <p className={styles.para}>{chapter.details}</p>
       <br />
