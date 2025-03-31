@@ -32,7 +32,11 @@ function Learn() {
           <ul>
             {matchedCourse.chapters.map((chapter, i) => {
               return (
-                <div onClick={() => navigate(`${chapter.chapter}`)} key={i}>
+                <div
+                  style={{ cursor: "pointer", marginBottom: "5px" }}
+                  onClick={() => navigate(`${chapter.chapter}`)}
+                  key={i}
+                >
                   {chapter.title}
                 </div>
               );
@@ -42,7 +46,7 @@ function Learn() {
 
         <div>
           {/**Task5:  Chapter Details Must be rendered here */}
-          <Outlet />
+          <Outlet context={matchedCourse} />
         </div>
       </div>
     </div>
